@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "deploy": "pnpm build && pnpx gh-pages -d build -t true",
-    "dev": "vite dev",
+    "dev": "vite dev", 
     "build": "vite build",
     "preview": "vite preview",
     "test": "npm run test:integration && npm run test:unit",
