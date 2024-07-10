@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { AppBar, AppLayout, Avatar,Collapse, Button, NavItem, Tooltip, settings,ThemeSelect,Toggle,Menu,MenuItem} from 'svelte-ux';
-
+    import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import '../app.postcss';
 	export let data;
@@ -28,14 +28,14 @@
 <AppLayout>
 	<svelte:fragment slot="nav">
 		<NavItem
-			path="/"
+			path="{base}/"
 			text="Home"
 			icon="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"
 			currentUrl={$page.url}
 		/>
 
 		<NavItem
-			path="/about"
+			path="{base}/about"
 			text="About"
 			icon="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
 			currentUrl={$page.url}
@@ -44,7 +44,7 @@
 
 	 <Collapse name="documentation" class="text-slate-100 " >
 		<NavItem
-		path="/docs"
+		path="{base}/docs"
 		text="docs"
 		icon="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
 		currentUrl={$page.url}
@@ -55,13 +55,13 @@
 	 </Collapse>
 	   {#if !data.user}
 	   <NavItem
-	   path="/auth/login"
+	   path="{base}/auth/login"
 	   text="login"
 	  
 	   currentUrl={$page.url}
          />
 		 <NavItem
-		 path="/auth/register"
+		 path="{base}/auth/register"
 		 text="register"
 		
 		 currentUrl={$page.url}
