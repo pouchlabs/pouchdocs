@@ -20,7 +20,7 @@ export const actions ={
       const token = await createSuper(formdata);
 
       if(!token){
-        throw fail(400)
+        return fail(400)
       }else{
         setAuthToken({cookies, token:token});                          
 

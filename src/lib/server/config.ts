@@ -1,26 +1,34 @@
-import { JSONFilePreset } from "lowdb/node";
-import {join} from "node:path";
-import {existsSync} from "node:fs";
+import {join} from "path";
+import {existsSync,mkdirSync} from "fs";
 import { nanoid } from "nanoid";
+import {chmodrSync} from "$lib/server/chmod.js";
+import Conf from 'conf';
 
-
+const config = new Conf({projectName: 'pouchdocs'});
 
 
 async function init(){
-    let defaultconf = {
-        secret:'',
-        admins:[],
-        path:join(process.cwd(),"pouchdocs.json")
-    }
     
- if(!existsSync(defaultconf.path)){
-   let config = await JSONFilePreset(defaultconf.path,defaultconf)
-   config.data.secret = nanoid(32);
-  config.write()
+  
+    
+ if(!existsSync(join(process.cwd(),"/pouchdocs-storage"))){
+
+  try {
+    mkdirSync(join(process.cwd(),"/pouchdocs-storage"),{recursive:true})
+    
+   chmodrSync(process.cwd(), 0o777);
+   
+    config.set('secret',nanoid(32))
+    config.set('admins',[])
+  } catch (error) {
+     console.log(error) 
+  }
+  
    return config ;
  }
- return await JSONFilePreset(defaultconf.path,defaultconf);
+
+ return config;
    
-}
+} 
 
 export default await init()

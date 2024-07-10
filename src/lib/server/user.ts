@@ -6,7 +6,7 @@ import config from "./config.ts";
 
 
 function createJWT(user) {
-  return  jwt.sign({id: user._id, email: user.email,isAdmin:user.isAdmin,isSuper:user.isSuper}, config.data.secret, {
+  return  jwt.sign({id: user._id, email: user.email,isAdmin:user.isAdmin,isSuper:user.isSuper}, config.get("secret"), {
     expiresIn: '1d'
   });
 }
@@ -20,10 +20,11 @@ export async function createSuper(form){
     isAdmin:true,
     _id:nanoid(16)
    }
-   config.data.admins.push(user)
-   await config.write()
 
-   let token = createJWT(user)
+  config.set("admins",user)
+  console.log(config.get("admins"))
+  
+  let token = createJWT(user)
 
    return token
 
