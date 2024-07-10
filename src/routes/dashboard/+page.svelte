@@ -1,0 +1,18 @@
+<script lang="ts">
+  import {Grid,Card} from "svelte-ux";
+  export let data;
+ console.log(data)
+</script>
+ <span class="text-primary p-1 my-2 mx-2"> dashboard </span>
+<Grid columns={4} class='my-2' >
+ 
+    <div class="shadow-sm p-2 rounded flex flex-col">
+      <span class="text-primary">total docs</span>
+      <span>{data.docs}</span>
+    </div>
+    <div class="shadow-sm p-2 rounded flex flex-col">
+      <span class="text-primary">total users</span>
+      <span>{data.docs}</span>
+    </div>
+  
+</Grid>
