@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "deploy": "pnpm build && pnpx gh-pages -d build -t true",
-    "dev": "vite dev", 
+    "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
     "test": "npm run test:integration && npm run test:unit",
@@ -15,13 +15,13 @@
     "format": "prettier --plugin-search-dir . --write .",
     "test:integration": "playwright test",
     "test:unit": "vitest"
-    
   },
   "devDependencies": {
     "@iconify/svelte": "^4.0.2",
     "@mdi/js": "^7.4.47",
     "@playwright/test": "^1.44.1",
     "@sveltejs/adapter-auto": "^3.2.1",
+    "@sveltejs/adapter-cloudflare": "^4.6.1",
     "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/adapter-vercel": "^5.4.1",
     "@sveltejs/kit": "^2.5.10",
