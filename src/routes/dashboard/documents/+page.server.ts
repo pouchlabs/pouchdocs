@@ -14,7 +14,7 @@ export const actions = {
     create:async ({request,params,locals})=>{
         const formdata = Object.fromEntries(await request.formData());
         
-        docsdb.get(formdata.title).then(doc=>{
+        await docsdb.get(formdata.title).then(doc=>{
             //exists
 
         }).catch( async _=>{ 
@@ -29,9 +29,9 @@ export const actions = {
                 locals.currentdoc = {
                     location:`/dashboard/documents/${resp.id}`
                 }
-            
+                throw redirect(302,`/dashboard/documents`)
               } catch (err) {
-               
+               console.log(err)
               }
         })
         console.log(locals)

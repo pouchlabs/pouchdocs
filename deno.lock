@@ -1,0 +1,62 @@
+{
+  "version": "3",
+  "remote": {
+    "https://edge.netlify.com/": "ff84a16f192fdb43db8b9dff869889f555c05857d075044d2a7cfa54c283a0a0",
+    "https://edge.netlify.com/bootstrap/config.ts": "0aa0a225d978b89e0e62cbd853701605199e7a84095e55eeb70147faf1a24803",
+    "https://edge.netlify.com/bootstrap/context.ts": "f8392d0bfc4a345f0508157a9ed1a8b0ac832275e5ae6fe9301a8268fbfeb0b5",
+    "https://edge.netlify.com/bootstrap/cookie.ts": "8b0baae708989ca183c6f3b4ab3d029e6abcbc2e43f93edeb0ff447b3bbc3a05",
+    "https://edge.netlify.com/bootstrap/edge_function.ts": "b8253e86aa83c67341f5cfedeba5049d77fbf84dcab7eceff7566b7728ae9b39",
+    "https://edge.netlify.com/bootstrap/globals.ts": "38f9e0be6c2c78206bf14d2387d41964d38bbe81644b3668e203c6f6473408a7"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@iconify/svelte@^4.0.2",
+        "npm:@mdi/js@^7.4.47",
+        "npm:@playwright/test@^1.44.1",
+        "npm:@pouchlab/lite@^1.0.1",
+        "npm:@sveltejs/adapter-auto@^3.2.1",
+        "npm:@sveltejs/adapter-cloudflare@^4.6.1",
+        "npm:@sveltejs/adapter-netlify@^4.3.1",
+        "npm:@sveltejs/adapter-static@^3.0.2",
+        "npm:@sveltejs/adapter-vercel@^5.4.1",
+        "npm:@sveltejs/kit@^2.5.10",
+        "npm:@sveltejs/vite-plugin-svelte@^3.1.1",
+        "npm:@types/bcryptjs@^2.4.6",
+        "npm:@types/jsonwebtoken@^9.0.6",
+        "npm:@typescript-eslint/eslint-plugin@^7.11.0",
+        "npm:@typescript-eslint/parser@^7.11.0",
+        "npm:autoprefixer@^10.4.19",
+        "npm:axios@^1.7.2",
+        "npm:bcryptjs@^2.4.3",
+        "npm:dotenv@^16.4.5",
+        "npm:eslint-config-prettier@^9.1.0",
+        "npm:eslint-plugin-svelte@^2.39.0",
+        "npm:eslint@^8.57.0",
+        "npm:esm-env@^1.0.0",
+        "npm:gh-pages@^6.1.1",
+        "npm:highlight.js@^11.9.0",
+        "npm:jsonwebtoken@^9.0.2",
+        "npm:localforage@^1.10.0",
+        "npm:lowdb@^7.0.1",
+        "npm:nanoid@^5.0.7",
+        "npm:postcss-load-config@^5.1.0",
+        "npm:postcss@^8.4.38",
+        "npm:pouchdb-find@^9.0.0",
+        "npm:pouchdb@^9.0.0",
+        "npm:prettier-plugin-svelte@^3.2.3",
+        "npm:prettier@^3.2.5",
+        "npm:sveditorjs@^2.0.1",
+        "npm:svelte-check@^3.8.0",
+        "npm:svelte-ux@latest",
+        "npm:svelte@next",
+        "npm:tailwindcss@^3.4.3",
+        "npm:tslib@^2.6.2",
+        "npm:typescript@^5.4.5",
+        "npm:vite@^5.2.12",
+        "npm:vitest@^1.6.0",
+        "npm:zod@^3.23.8"
+      ]
+    }
+  }
+}

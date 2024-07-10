@@ -12,7 +12,7 @@ import { createSuper } from '$lib/server/user.ts';
     });
   };
 
-console.log(config)
+
 export const actions ={
     create: async ({request,cookies})=>{
       const formdata = Object.fromEntries(await request.formData());
