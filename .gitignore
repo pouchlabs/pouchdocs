@@ -12,5 +12,6 @@ vite.config.ts.timestamp-*
 /.pouchlite
 /prisma
 pouchdocs-storage
+pouchdocs
 # Local Netlify folder
 .netlify

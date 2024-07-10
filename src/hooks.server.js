@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import config from '$lib/server/config.ts';
-
+console.log(config.get("secret")) 
 export const handle = async ({event, resolve}) => {
   const authCookie = event.cookies.get('AuthorizationToken');
 
