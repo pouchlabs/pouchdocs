@@ -4,7 +4,7 @@
 	import { page } from '$app/stores';
 	import '../app.postcss';
 	export let data;
-	
+	console.log(data) 
 
 	settings({
 		components: {
@@ -60,12 +60,7 @@
 	  
 	   currentUrl={$page.url}
          />
-		 <NavItem
-		 path="/auth/register"
-		 text="register"
 		
-		 currentUrl={$page.url}
-		   />
 	   {/if}
 	</svelte:fragment>
 

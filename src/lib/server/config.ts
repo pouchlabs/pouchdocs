@@ -8,9 +8,8 @@ const config = new Conf({cwd:join(process.cwd(),"pouchdocs-storage"),projectName
 async function init(){
  if(!config.get('secret')){
   config.set('secret',nanoid(32))
-  config.set('admins',[])
  }  
  return config;  
-} 
+}
 
 export default await init()

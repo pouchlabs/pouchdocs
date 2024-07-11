@@ -3,6 +3,6 @@ import find from "pouchdb-find";
 import config from './config.ts';
 
 Pouchdb.plugin(find)
-let docsdb = new Pouchdb('docs',{autocompaction:true});
-export let admdb = new Pouchdb('admin',{autocompaction:true});
-export default docsdb
+let docsdb = new Pouchdb('pouchdocs-storage/docs',{autocompaction:true});
+export let admdb = new Pouchdb('pouchdocs-storage/admin',{autocompaction:true});
+export default docsdb 

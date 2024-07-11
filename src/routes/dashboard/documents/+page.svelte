@@ -19,6 +19,7 @@
   };
   </script>
    <span class="text-primary p-1 my-2 mx-2"> documents </span>
+   {#if data.user.isSuper}
    <Button on:click={() => (open = true)}>create document</Button>
    <Dialog bind:open class="w-50 h-50">
      <div slot="title">Create new document</div>
@@ -46,6 +47,7 @@
     </form>
     
    </Dialog>
+   {/if}
    <Grid columns={4} gap={2}>
       {#if data.docs.length > 0}
       {#each data.docs as doc}

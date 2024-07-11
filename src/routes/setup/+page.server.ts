@@ -1,7 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
-import config from "$lib/server/config.ts";
 import { createSuper } from '$lib/server/user.ts';
-
+import {admdb} from "$lib/server/db.ts";
  const setAuthToken = ({cookies, token}) => {
     cookies.set('AuthorizationToken', `Bearer ${token}`, {
       httpOnly: true,
@@ -12,6 +11,21 @@ import { createSuper } from '$lib/server/user.ts';
     });
   };
 
+  export async function load({request,params,locals,url}){
+    try {
+      let all = await admdb.allDocs({});
+       if(all.total_rows > 0 && url.pathname === '/setup'){
+        //no adms redirec
+        throw redirect(302,'/dashboard') 
+       }
+     } catch (error) { 
+      //
+      if(error && error.status === 302){
+        throw redirect(302,error.location) 
+      }
+     } 
+   } 
+     
 
 export const actions ={
     create: async ({request,cookies})=>{

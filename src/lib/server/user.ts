@@ -18,16 +18,15 @@ export async function createSuper(form){
     password: await bcrypt.hash(password, 12),
     isSuper:true,
     isAdmin:true,
-    _id:nanoid(16)
+    _id:email
    }
-
-  config.set("admins",user)
-  console.log(config.get("admins"))
-  
+   try{
+   admdb.put(user)
   let token = createJWT(user)
-
    return token
-
+   }catch(err){
+    console.log(err)
+   }
 }
 
 export async function createUser(email, password) {
@@ -78,21 +77,21 @@ export async function createUser(email, password) {
 export async function loginUser(email, password) {
   try {
     const user = await admdb.get(email);
-
     if (!user) {
-      return {error: 'User not found'};
+      return null
     }
 
     const valid = await bcrypt.compare(password, user.password);
 
     if (!valid) {
-      return {error: 'Invalid password'};
+      return null
     }
 
     const token = createJWT(user);
 
-    return {token};
-  } catch (error) {
-    return error;
+    return token;
+  } catch (err) {
+    //
+    return null
   }
 }

@@ -7,7 +7,7 @@ export const load = async ({locals}) => {
 
 export const actions = {
   logout: async ({cookies}) => {
-    cookies.delete("AuthorizationToken");
+    cookies.delete("AuthorizationToken",{path:"/"});
     throw  redirect(302, "/auth");
   }
 }

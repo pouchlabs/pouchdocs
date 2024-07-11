@@ -22,18 +22,18 @@ export const actions = {
             let doc = {}
             doc._id = formdata.title;
             doc.title = formdata.title;
-            doc.html = ''
+            doc.data={}
             try {
          
                 const resp = await docsdb.put(doc);
-                locals.currentdoc = {
-                    location:`/dashboard/documents/${resp.id}`
-                }
-                throw redirect(302,`/dashboard/documents`)
+           
+                throw redirect(302,`/dashboard/documents/${resp.id}`)
               } catch (err) {
-               console.log(err)
+               if(err.status === 302){
+                 throw redirect(302,err.location)
+
+               }
               }
         })
-        console.log(locals)
     }
 }
