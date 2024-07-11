@@ -1,16 +1,23 @@
 <script lang="ts">
     import {page} from "$app/stores";
-  console.log($page)
+    import {Notification,Button} from "svelte-ux";
+    export let data;
 </script>
-<h1>User Auth Login</h1>
+
 {#if $page.form }
- {$page.form.msg}
+<div class="w-[400px] mx-auto">
+  <Notification open  closeIcon>
+    <div slot="title" class="">{$page.form.msg}</div>
+  </Notification>
+</div>
+ 
 {/if}
-<form method="POST" action="?/login" class="p-8 mt-8">
+<div class="w-[500px] mx-auto shadow-md mt-3 mb-3 p-5">
+  <h1 class="mb-2 mt-2" >User Auth Login</h1>
+  <form method="POST" action="?/login" class="flex gap-3 flex-col mt-8">
 
-    <input type="email" name="email" placeholder="Email Address" />
-    <input type="password" name="password" placeholder="Password"/>
-    <button type="submit">Log In</button>
+    <input required type="email" name="email" placeholder="Email Address" />
+    <input required type="password" name="password" placeholder="Password"/>
+    <Button type="submit" class='bg-primary'>Log In</Button>
 </form>
-
-<a href="/auth">User Auth</a>
+</div>
