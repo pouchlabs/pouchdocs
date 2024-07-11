@@ -9,11 +9,11 @@
 	settings({
 		components: {
 			AppBar: {
-				classes: 'bg-primary  shadow-lg '
+				classes: 'bg-prim shadow-xl '
 			},
 			AppLayout: {
 				classes: {
-					nav: 'bg-neutral-600 py-8 shadow-md'
+					nav: 'bg-neutral-400 py-8 shadow-xl'
 				}
 			},
 			NavItem: {

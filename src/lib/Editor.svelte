@@ -2,12 +2,15 @@
     import Editor,{genHtml} from "sveditorjs";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
+    import {SvelteEditor} from '@nextlint/svelte';
+    import EditorTheme from '@nextlint/svelte/EditorTheme';
    export let doc;
 
-     doc.data ={
-      blocs:[]
-     }
-  let modes = {
+     doc.data =`<div class="section" id="section-caf0af11">
+     users
+     </div>
+`
+      let modes = {
           'js': 'JavaScript',
           'py': 'Python',
           'go': 'Go',
@@ -28,6 +31,30 @@
       console.log(err)
     })
     })
+    let plugins = {
+        image: {
+          handleUpload:(file)=>{
+            // handle upload here
+                const blob = new Blob([file]);
+                const previewUrl = URL.createObjectURL(blob);
+                return previewUrl;
+          },
+          unsplash: {
+            accessKey: 'UNPLASH_API_KEY'
+          }
+        },
+        dropCursor: {
+      width:'2px',
+      color:'#000',
+    },
+    codeBlock: {
+        langs: ['c', 'sh', 'javascript', 'html', 'typescript'],
+        themes: {
+          dark: 'vitesse-dark',
+          light: 'vitesse-light'
+        }
+      }
+      }
    
  async function handleChange(ev){
     let editor = ev.detail.editor;
@@ -38,15 +65,14 @@
     console.log("da",doc.data)
     }).catch((err)=>{console.log(err)})
   }
-</script>
-<Editor data={doc.data} urls={urls} modes={modes}   on:editor_ready={(ev)=>{console.log("ready",ev.detail)}} on:editor_change ={(ev)=>{handleChange(ev)}} >
-    <svelte:fragment slot="top" >
-      top
-    </svelte:fragment>
-    <svelte:fragment slot="aside"  >
-     aside
-    </svelte:fragment>
-  <svelte:fragment slot="extra" >
-     extra unstyled
-    </svelte:fragment>
-  </Editor>
+  let editor;
+</script> 
+   <div class="editor mt-5 mx-auto  ">
+    <EditorTheme>
+      <SvelteEditor {plugins} content={doc.data} placeholder="Start editing..."   onChange={_editor => {
+        editor = _editor;
+        console.log(editor)
+      }} />
+    </EditorTheme>
+   </div>
+ 
