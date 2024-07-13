@@ -8,7 +8,7 @@ import { env } from '$env/dynamic/private';
 const superbaseurl = env.PRIVATE_SUPABASE_URL;
 const superbasecret = env.PRIVATE_SUPABASE_PRIVATE_KEY;
 
-const supabase = createClient(superbaseurl, superbasecret)
+export const supabase = createClient(superbaseurl, superbasecret);
 
 export const admdb = supabase.from('admin')
 export const docsdb = supabase.from('docs')

@@ -1,23 +1,21 @@
 import { error, fail,redirect } from '@sveltejs/kit';
-import docdb from "$lib/server/db.ts";
+import {docsdb,supabase} from "$lib/server/config.ts";
 
 export const load = async ({params,locals})=>{
-    let doc = await docdb.get(params.doc).then(doc=>{
-          return doc
-      }).catch(err =>{
-         return error(err.status,'not found');
-      })
+  if(!locals.user){
+    throw redirect(302,"/")
+  } 
+  let { data: document, error } = await supabase
+  .from('docs')
+  .select("*")
+  .eq('title', params.doc)
 
-      
-        if(doc){
-            return {doc:doc}
-        }
-      
-      
+  if(error)return fail(400);
 
-   if(!locals.user){
-     throw redirect(302,"/")
-   } 
+     return {doc:document}
+
+
+
 
 
 }

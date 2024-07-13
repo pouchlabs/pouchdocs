@@ -3,7 +3,6 @@
     import { z } from 'zod';
    // import {enhance} from "svelte";
     export let data;
-    console.log(data) 
     let open = false;
     let title = {
     name: '',
@@ -49,10 +48,10 @@
    </Dialog>
    {/if}
    <Grid columns={4} gap={2}>
-      {#if data.docs.length > 0}
-      {#each data.docs as doc}
+      {#if data.docs.totaldocs > 0}
+      {#each data.docs.documents as doc}
       <Card>
-        <Header title={doc.id} subheading={doc.id} slot="header">
+        <Header title={doc.title} subheading={doc.title} slot="header">
           <div slot="actions">
             <Toggle let:on={open} let:toggle let:toggleOff>
               <Button on:click={toggle}>
@@ -65,7 +64,7 @@
                 <Menu {open} on:close={toggleOff} autoPlacement class="px-3">
              
                  <MenuItem >
-                  <Button href={`/dashboard/documents/${doc.id}`}>edit</Button>
+                  <Button href={`/dashboard/documents/${doc.title}`}>edit</Button>
                 
                 </MenuItem>
                 
