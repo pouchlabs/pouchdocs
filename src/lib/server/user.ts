@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {admdb} from "./config.ts";
+import {admdb,supabase} from "./config.ts";
 import { nanoid } from "nanoid";
 import config from "./config.ts";
 
@@ -21,7 +21,7 @@ export async function createSuper(form){
    }
 
    try{
-    const {data,error} = await admdb.insert(user).select()
+    const {data,error} = await supabase.from('admin').insert(user).select()
     if(data){
       let token = createJWT(data)
       return token
@@ -77,23 +77,24 @@ export async function createUser(email, password) {
 }
 
 export async function loginUser(email, password) {
-  try {
-    const user = await admdb.get(email);
-    if (!user) {
+
+    const user = await supabase.from('admin').select("*").eq("email",email)
+   
+    if (!user.data) {
+   //no user
       return null
     }
-
-    const valid = await bcrypt.compare(password, user.password);
-
+    //exists
+    const fuser = user.data.find(async da=>da.password === password)
+    
+    const valid = await bcrypt.compare(password, fuser.password);
+   
     if (!valid) {
+      //pass not valid
       return null
     }
-
-    const token = createJWT(user);
+     //valid
+    const token = createJWT(fuser);
 
     return token;
-  } catch (err) {
-    //
-    return null
-  }
 }

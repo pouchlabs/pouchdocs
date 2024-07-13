@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import config,{admdb} from '$lib/server/config.ts';
+import config,{supabase} from '$lib/server/config.ts';
 
 export const handle = async ({event, resolve}) => {
   const authCookie = event.cookies.get('AuthorizationToken');
@@ -9,7 +9,7 @@ export const handle = async ({event, resolve}) => {
  
     try {
       const jwtUser = jwt.verify(token, config.get("secret"));
-      const res = await admdb.select("*").eq('email','pouchlabs@gmail.com') 
+      const res = await supabase.from('admin').select("*").eq('email',jwtUser.email)
       if (res.data && res.data.length > 0) {
         res.data.map(user=>{
           event.locals.user = {email:user.email,id:user.id,isadmin:user.isAdmin,name:user.name,isSuper:user.isSuper}; 

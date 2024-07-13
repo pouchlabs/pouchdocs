@@ -1,6 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { createSuper } from '$lib/server/user.ts';
-import {admdb} from "$lib/server/config.ts";
+import {supabase} from "$lib/server/config.ts";
+
  const setAuthToken = ({cookies, token}) => {
     cookies.set('AuthorizationToken', `Bearer ${token}`, {
       httpOnly: true,
@@ -11,20 +12,17 @@ import {admdb} from "$lib/server/config.ts";
     });
   };
 
-  export async function load({request,params,locals,url}){
-    try {
-      const res = await admdb.select("*")
-      if(res.data && res.data.length > 0 && url.pathname === '/setup'){ 
+  export async function load({url}){
+    let { data: admin, error } = await supabase
+    .from('admin')
+    .select('*')
+  
+      if(admin && admin.length > 0 && url.pathname === '/setup'){ 
         //no adms redirec
         throw redirect(302,'/dashboard') 
        }
-     } catch (error) { 
-      //
-      console.log(error)
-      if(error && error.status === 302){
-        throw redirect(302,error.location) 
-      }
-     } 
+   
+     
    } 
      
 

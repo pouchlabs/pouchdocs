@@ -4,7 +4,6 @@ import { nanoid } from "nanoid";
 import {chmodr} from "$lib/server/chmod.js";
 import Conf from 'conf';
 import { createClient } from '@supabase/supabase-js';
-import { env } from '$env/dynamic/private';
 import {PRIVATE_SUPABASE_URL,PRIVATE_SUPABASE_PRIVATE_KEY} from "$env/static/private";
 
 
