@@ -1,26 +1,29 @@
 <script lang="ts">
-import {Button} from "svelte-ux";
+import {Button,Card} from "svelte-ux";
+import {page} from "$app/stores";
+import {onMount} from "svelte";
+export let data;
+
+onMount(()=>{
+	let article = document.querySelector('article');
+	
+	article.innerHTML = data.doc.html;
+})
 
 </script>
-
+{#if !data.doc}
+<Card  class="bg-red-500 w-auto mt-2 h-20 mx-auto">
+   !oops not found<br/>
+   {$page.params.doc}
+</Card>
+{:else}
 <main class="p-2 grid place-items-center content-center">
-	<h1 class="text-2xl font-semibold mb-2">Welcome to ✨Svelte g UX✨</h1>
-	<div>
-		<Button
-			href="https://svelte-ux.techniq.dev"
-			target="_blank"
-			variant="fill-light"
-			color="primary"
-		>
-			Documentation
-		</Button>
-		<Button
-			href="https://svelte-ux.techniq.dev/customization"
-			target="_blank"
-			variant="fill-light"
-			color="primary"
-		>
-			Customization
-		</Button>
-	</div>
+	{#if data.user}
+	   <Button class='bg-primary' href={`/dashboard/documents/${data.doc.title}`}>edit</Button>
+	{/if}
+	<h1>{data.doc.title}</h1>
+     <article>
+
+	 </article>
 </main>
+{/if}

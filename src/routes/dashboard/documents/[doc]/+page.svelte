@@ -1,9 +1,11 @@
 <script lang='ts' >
 import Editor from "$lib/Editor.svelte";
 import {page} from "$app/stores";
-import {Card} from "svelte-ux";
+import {Card,Breadcrumb} from "svelte-ux";
 export let data;
-console.log(data)
+
+let items = ['Documents',$page.params.doc];
+
 </script>
 
 <div class="mt-5 mx-auto ">
@@ -12,6 +14,13 @@ console.log(data)
             !oops not found: {$page.params.doc}
        </Card>
     {:else}
-   <Editor doc={data.currentDoc} ></Editor>
+    <Breadcrumb {items} class="gap-1" />
+    <div class="h-auto mx-auto">
+        <div class="shadow-md w-full">
+            <Editor doc={data.currentDoc} {data}  ></Editor>
+        </div>
+        
+    </div>
+   
    {/if} 
 </div>

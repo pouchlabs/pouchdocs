@@ -1,17 +1,19 @@
 /** @type {import('./$types').EntryGenerator} */
-// import lite from "$lib/server/db.ts";
+import {fail} from "@sveltejs/kit"
+import {supabase} from "$lib/server/config.ts";
 
-// let docsdb = await lite.useDb('docs')
+export async function load({params}){
 
-export function entries() {
-	return [
-		{ doc: 'intro' }, 
-		{ doc: 'another' } 
-	]; 
-}
+	let { data: docs} = await supabase
+	.from('docs')
+	.select('*').eq('title',params.doc)
+   if(!docs){
+  //
+     return {doc:null}
+   }
+   let doc = docs.find(d=>d.title === params.doc);
 
-export function load({request,params}){
- console.log(params)
+	return {doc}
 }
 
 export const prerender = true;

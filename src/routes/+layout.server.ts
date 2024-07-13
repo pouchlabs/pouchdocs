@@ -1,4 +1,4 @@
-import {admdb,supabase} from "$lib/server/config.ts";
+import {supabase} from "$lib/server/config.ts";
 import { redirect } from "@sveltejs/kit";
 
 export async function load({locals,url}){
@@ -10,12 +10,13 @@ export async function load({locals,url}){
     if(admin && admin.length === 0 && url.pathname !== '/setup'){ 
       throw redirect(302,'/setup') 
      }
+   //all docs
+   let { data: docs} = await supabase
+   .from('docs')
+   .select('*')
    
- 
-//user
-   if(locals.user){ 
-      let user = locals.user;
-      return {user}
-   }  
+      let user = locals.user || null;
+      return {user:user,docs:{totaldocs:docs.length,documents:docs}
+   }
  } 
    

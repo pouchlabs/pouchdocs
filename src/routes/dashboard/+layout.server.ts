@@ -4,7 +4,6 @@ import {supabase} from "$lib/server/config.ts";
 
 export const load = async ({locals}) => {
     const user = locals.user;
-    console.log(user) 
     let { data: docs, error } = await supabase
     .from('docs')
     .select('*')
