@@ -1,6 +1,7 @@
 <script lang="ts">
     import {Grid,Card,Header,Icon,Button,Dialog,Toggle,Menu,MenuItem,NavItem, Form, TextField} from "svelte-ux";
     import { z } from 'zod';
+    import {enhance} from "$app/forms";
    // import {enhance} from "svelte";
     export let data;
     let open = false;
@@ -28,7 +29,7 @@
      </div>
  
       <form
-
+       use:enhance
       action='?/create'
       method="post"
     >

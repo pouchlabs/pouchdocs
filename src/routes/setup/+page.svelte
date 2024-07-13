@@ -1,6 +1,7 @@
 <script lang="ts">
     import {Grid,Card,Header,Icon,Button,Dialog, Form, TextField} from "svelte-ux";
     import { z } from 'zod';
+    import {enhance} from "$app/forms";
    import {writable} from "svelte/store";
    import {BROWSER} from "esm-env";
     export let data;
@@ -38,7 +39,7 @@
         <h1 class="mt-4 mb-4">Setup super admin account </h1>
 
       <form
-       
+       use:enhance
       action='?/create'
       method="post"
       class="sform flex flex-col gap-3 mt-4 mb-4 p-5 shadow-md"

@@ -12,7 +12,7 @@ export const load = async ({params,locals})=>{
 
   if(!doc){return {currentDoc:''}}
   else{
-    return {currentDoc:doc}
+    return {currentDoc:doc.find(d=>d.title === params.doc)} 
   }
 
   

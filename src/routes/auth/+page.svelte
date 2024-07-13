@@ -1,5 +1,6 @@
 <script>
      import {Notification,Button} from "svelte-ux";
+     import {enhance} from "$app/forms";
     export let data;
 </script>
 
@@ -8,7 +9,7 @@
 
     {#if data?.user}
         <h1>Logged in as user: {data?.user?.email}</h1>
-        <form method="POST" action="?/logout">
+        <form use:enhance method="POST" action="?/logout">
             <Button type="submit" class="bg-primary w-20 h-10 mx-auto" >sign out</Button>
         </form>
     {/if}
