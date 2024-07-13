@@ -3,6 +3,19 @@ import {existsSync,mkdirSync} from "fs";
 import { nanoid } from "nanoid";
 import {chmodr} from "$lib/server/chmod.js";
 import Conf from 'conf';
+import { createClient } from '@supabase/supabase-js';
+import { env } from '$env/dynamic/private';
+const superbaseurl = env.PRIVATE_SUPABASE_URL;
+const superbasecret = env.PRIVATE_SUPABASE_PRIVATE_KEY;
+
+const supabase = createClient(superbaseurl, superbasecret)
+
+export const admdb = supabase.from('admin')
+export const docsdb = supabase.from('docs')
+export const storage = supabase.storage
+
+
+
 
 const config = new Conf({cwd:join(process.cwd(),"pouchdocs-storage"),projectName: 'pouchdocs',configFileMode:0o777});  
 async function init(){

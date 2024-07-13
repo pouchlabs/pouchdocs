@@ -1,31 +1,33 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import {admdb} from "./db.ts";
+import {admdb} from "./config.ts";
 import { nanoid } from "nanoid";
 import config from "./config.ts";
 
 
 function createJWT(user) {
-  return  jwt.sign({id: user._id, email: user.email,isAdmin:user.isAdmin,isSuper:user.isSuper}, config.get("secret"), {
+  return  jwt.sign({id: user.id, email: user.email,isAdmin:user.isAdmin,isSuper:user.isSuper}, config.get("secret"), {
     expiresIn: '1d'
   });
 }
 export async function createSuper(form){
   let {email,name,password} = form;
-   let user = {
+  let user = {
     name,
     email,
     password: await bcrypt.hash(password, 12),
     isSuper:true,
     isAdmin:true,
-    _id:email
    }
+
    try{
-   admdb.put(user)
-  let token = createJWT(user)
-   return token
+    const {data,error} = await admdb.insert(user).select()
+    if(data){
+      let token = createJWT(data)
+      return token
+    }
    }catch(err){
-    console.log(err)
+    //console.log(err)
    }
 }
 

@@ -4,7 +4,7 @@
 	import { page } from '$app/stores';
 	import '../app.postcss';
 	export let data;
-	console.log(data) 
+	//console.log(data)  
 
 	settings({
 		components: {
@@ -97,7 +97,7 @@
 			<Toggle let:on={open} let:toggle let:toggleOff>
 				<Button on:click={toggle}>
 					<Tooltip title={data.user.name} placement="left" offset={2}>
-					<Avatar class="border w-[30px] h-[30px]">{data.user.name.slice(0,2)} </Avatar> 
+					<Avatar class="border w-[30px] h-[30px]">{data.user.name} </Avatar> 
 					</Tooltip>
 				  <Menu {open} on:close={toggleOff} class="px-3">
 					 {#if  data.user.isadmin}

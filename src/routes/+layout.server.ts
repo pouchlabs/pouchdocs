@@ -1,11 +1,10 @@
-import {admdb} from "$lib/server/db.ts";
+import {admdb} from "$lib/server/config.ts";
 import { redirect } from "@sveltejs/kit";
 
 export async function load({locals,url}){
   try {
-    let all = await admdb.allDocs({});
-    if(all.total_rows === 0 && url.pathname !== '/setup'){ 
-      //no adms redirec
+    const res = await admdb.select("*")
+    if(res.data && res.data.length === 0 && url.pathname !== '/setup'){ 
       throw redirect(302,'/setup') 
      }
    

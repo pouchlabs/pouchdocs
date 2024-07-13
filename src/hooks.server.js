@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import config from '$lib/server/config.ts';
-import {admdb} from "$lib/server/db.ts";
+import config,{admdb} from '$lib/server/config.ts';
+
 export const handle = async ({event, resolve}) => {
   const authCookie = event.cookies.get('AuthorizationToken');
 
@@ -9,15 +9,15 @@ export const handle = async ({event, resolve}) => {
  
     try {
       const jwtUser = jwt.verify(token, config.get("secret"));
-      const user =  await admdb.get(jwtUser.id);
-      if (user) {
-        event.locals.user = {email:user.email,id:user._id,isadmin:user.isAdmin,name:user.name,isSuper:user.isSuper}; 
+      const res = await admdb.select("*").eq('email','pouchlabs@gmail.com') 
+      if (res.data && res.data.length > 0) {
+        res.data.map(user=>{
+          event.locals.user = {email:user.email,id:user.id,isadmin:user.isAdmin,name:user.name,isSuper:user.isSuper}; 
+        })
       }
     } catch (error) {
       //console.log(error);
     }
   }
-
-
   return await resolve(event);
 };
