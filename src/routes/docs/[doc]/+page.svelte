@@ -2,6 +2,8 @@
 import {Button,Card} from "svelte-ux";
 import {page} from "$app/stores";
 import {onMount} from "svelte";
+import '$lib/article.css'; 
+
 export let data;
 
 onMount(()=>{
@@ -24,13 +26,25 @@ onMount(()=>{
    {$page.params.doc}
 </Card>
 {:else}
-<main class="p-2 grid place-items-center content-center">
+<main class="p-2  flex flex-col items-center content-center w-screen h-screen">
 	{#if data.user}
+	<h1 class="text-xl">{data.doc.title}</h1>
 	   <Button class='bg-primary' href={`/dashboard/documents/${data.doc.title}`}>edit</Button>
 	{/if}
-	<h1>{data.doc.title}</h1>
-     <article>
-
-	 </article>
+	 
+	<div class="flex flex-row flex-wrap">
+		<div class="w-[200px] h-[200px] shadow-md  rounded">
+			ad 
+		</div>
+	
+		<article class="p-2 mt-2 mb-2">
+      
+		</article>
+		<div class="w-[200px] h-[200px] shadow-md  rounded sticky top-[70px]">
+			ad 
+		</div>
+	
+	</div>
+   
 </main>
 {/if}

@@ -8,6 +8,7 @@
     import axios from "axios";
     import {Button } from "svelte-ux";
     import ls from 'localstorage-slim';
+
    export let data;
    export let doc;
    let editor;
@@ -15,7 +16,7 @@
 
     onMount(async ()=>{
       //
-     
+ 
       //save to local
       try {
         ls.set(doc.title,curreditable)
@@ -43,8 +44,8 @@
       codeBlock: {
         langs: ['sh', 'javascript', 'html', 'typescript'],
         themes: {
-          dark: 'vitesse-dark',
-          light: 'vitesse-light'
+          dark: 'github-dark',
+          light: 'github-light'
         }
       }
  
@@ -73,20 +74,22 @@ axios.post(`/dashboard/documents/${$page.params.doc}`,{html:html,title:doc.title
     })
 }
 
+
 </script> 
-   <div class="editor p-2 mb-5"  >
+   <div class="editor w-100 p-2 mb-5"  >
     {#if saving }
     <span class="text-success mb-5"  >publishing...</span>
      {/if}
-
-      <SvelteEditor theme='dark' {plugins} bind:content={curreditable} placeholder="Start editing..."  onChange={async _editor =>{handleChange(_editor) ; setTimeout(saveDoc(),3000)}} />
- 
+     <EditorTheme  >
+      <SvelteEditor { plugins } placeholder="start writting .." onChange={(ed)=>{handleChange(ed);setTimeout(saveDoc(),3000)}} bind:content={curreditable}  ></SvelteEditor>
+     </EditorTheme>
    </div>
    <style>
     .editor{
       min-width: 200px !important;
-      max-width: 70vw;
+      width: 50vw;
       overflow-y: auto;
+      max-height: calc(100vh-10px);
     }
    </style>
  

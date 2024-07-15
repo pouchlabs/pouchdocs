@@ -1,0 +1,17 @@
+article{
+    max-width:500px;
+    word-wrap:wrap;
+    margin:5px 5px;
+    
+}
+.shiki{
+    background-color: #1212 !important;
+}
+pre{
+    min-height:40px;
+    height:auto;
+    overflow-x:auto;
+    overflow-y:auto;
+    max-width:900px;
+    margin:5px 5px !important;
+}
