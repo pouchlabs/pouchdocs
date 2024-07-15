@@ -8,6 +8,13 @@ onMount(()=>{
 	let article = document.querySelector('article');
 	
 	article.innerHTML = data.doc.html;
+	let pre = document.querySelectorAll('pre');
+	pre.forEach(el=>{
+		el.classList.add('shadow-md')
+		el.classList.add('p-2')
+		el.classList.add('rounded')
+		el.classList.add('dark:bg-neutral-400')
+	})
 })
 
 </script>

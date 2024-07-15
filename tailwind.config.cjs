@@ -5,6 +5,7 @@ const svelte_ux = require('svelte-ux/plugins/tailwind.cjs');
 const config = {
 	content: ['./src/**/*.{html,svelte}', './node_modules/svelte-ux/**/*.{svelte,js}','./node_modules/@nextlint/svelte/dist/**/*.{svelte,ts}'],
 	theme: {
+	
 		container: {
 			center: true,
 			padding: '2rem',
@@ -20,8 +21,8 @@ const config = {
 			  background: 'hsl(var(--background))',
 			  foreground: 'hsl(var(--foreground))',
 			  primary: {
-				DEFAULT: 'hsl(var(--primary))',
-				foreground: 'hsl(var(--primary-foreground))'
+				DEFAULT: '#009E60',
+				//foreground: 'hsl(var(--primary-foreground))'
 			  },
 			  secondary: {
 				DEFAULT: 'hsl(var(--secondary))',

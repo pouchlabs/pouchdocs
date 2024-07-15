@@ -18,5 +18,5 @@ export async function load({locals,url}){
       let user = locals.user || null;
       return {user:user,docs:{totaldocs:docs.length,documents:docs}
    }
- } 
+ }  
    

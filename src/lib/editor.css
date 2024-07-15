@@ -1,8 +1,211 @@
-.tiptap{
-    min-width:200px;
-    margin-top:5px;
-    margin-botton:5px;
-    margin-left:auto;
-    margin-right:auto;
-    min-height:70vh;
+@import 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700;900&display=swap';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+.tiptap {
+  @apply outline-none text-foreground;
+
+  h1 {
+    @apply mt-10 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+
+  h2 {
+    @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+  }
+
+  h3 {
+    @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply mt-6 scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+
+  ul,
+  ol {
+    @apply my-6 ml-6 [&>li]:mt-2;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  .shiki {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    background: transparent;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    cursor: text;
+    border-radius: 4px;
+    outline: none;
+    padding: 16px;
+    min-height: 52px;
+    height: 100%;
+    border: 1px solid theme('colors.border');
+    margin-top: 1.5rem;
+  }
+
+  p > code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+
+  hr {
+    @apply mt-8 bg-border;
+  }
+
+  figure {
+    @apply mt-6;
+
+    img {
+      @apply aspect-auto max-h-[800px] mx-auto rounded-md object-contain w-full;
+    }
+
+    figcaption {
+      @apply text-center text-muted-foreground text-sm;
+    }
+  }
+
+  a {
+    @apply text-blue-600 underline underline-offset-2;
+    @apply dark:text-blue-400;
+  }
+
+  p.is-editor-empty:first-child:before {
+    @apply text-muted-foreground;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  p.is-block-empty:before {
+    @apply text-muted-foreground;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+
+    &[data-align='right']:before {
+      float: right;
+    }
+  }
+
+  image-placeholder {
+    margin-top: theme('margin.6');
+    display: block;
+  }
+}
+
+.dark {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+.clean-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: theme('colors.slate.300');
+}
+.clean-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.clean-scroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.clean-scroll::-webkit-scrollbar-thumb {
+  background-color: theme('colors.slate.200');
+  border-radius: 8px;
 }

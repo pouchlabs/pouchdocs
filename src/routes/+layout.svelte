@@ -9,7 +9,7 @@
 	settings({
 		components: {
 			AppBar: {
-				classes: 'bg-prim shadow-xl '
+				classes: 'bg-primary text-white shadow-xl '
 			},
 			AppLayout: {
 				classes: {
