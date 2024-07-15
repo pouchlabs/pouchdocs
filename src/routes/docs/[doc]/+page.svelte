@@ -26,21 +26,21 @@ onMount(()=>{
    {$page.params.doc}
 </Card>
 {:else}
-<main class="p-2  flex flex-col items-center content-center w-screen h-screen">
+<main class="p-4  flex flex-col items-center content-center w-100 h-100">
 	{#if data.user}
 	<h1 class="text-xl">{data.doc.title}</h1>
 	   <Button class='bg-primary' href={`/dashboard/documents/${data.doc.title}`}>edit</Button>
 	{/if}
 	 
-	<div class="flex flex-row flex-wrap">
-		<div class="w-[200px] h-[200px] shadow-md  rounded">
+	<div class="flex flex-row flex-wrap mx-2">
+		<div class="w-[200px] h-[200px] shadow-md mx-auto  rounded">
 			ad 
 		</div>
 	
-		<article class="p-2 mt-2 mb-2">
+		<article class="px-5 text-wrap mt-2 mb-2">
       
 		</article>
-		<div class="w-[200px] h-[200px] shadow-md  rounded sticky top-[70px]">
+		<div class="w-[200px] h-[200px] mx-auto shadow-md  rounded sticky top-[70px]">
 			ad 
 		</div>
 	

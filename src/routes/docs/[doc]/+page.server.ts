@@ -15,5 +15,3 @@ export async function load({params}){
 
 	return {doc}
 }
-
-export const prerender = true;

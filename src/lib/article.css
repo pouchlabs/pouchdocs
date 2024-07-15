@@ -3,6 +3,10 @@ article{
     word-wrap:wrap;
     margin:5px 5px;
     
+
+}
+article > a{
+    color:var(--primary);
 }
 .shiki{
     background-color: #1212 !important;
@@ -14,4 +18,8 @@ pre{
     overflow-y:auto;
     max-width:900px;
     margin:5px 5px !important; 
+}
+body{
+    overflow-x:hidden;
+    max-width:calc(100vw - 10px);
 }
