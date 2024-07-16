@@ -6,10 +6,8 @@
     import EditorTheme from '@nextlint/svelte/EditorTheme';
     import '$lib/editor.css';
     import axios from "axios";
-    import {Button } from "svelte-ux";
     import ls from 'localstorage-slim';
 
-   export let data;
    export let doc;
    let editor;
    let curreditable = doc.html;;
@@ -25,8 +23,7 @@
       } catch (error) {
          //
       }
-      
-    
+
     })
     let plugins = {
         image: {

@@ -1,15 +1,8 @@
 <script lang="ts">
-    import {Tooltip,Button,NavItem,Tabs,Icon,Card,Menu,Dialog,MenuItem,Toggle} from "svelte-ux";
+    import {Tooltip,NavItem,Icon} from "svelte-ux";
     import { page } from '$app/stores';
     
-  let options = [
-    { label: 'dashboard', value: 1 },
-    { label: 'users', value: 2 },
-    
-  ];
-
-  let value = 1;
-  let open1 = false
+ 
     </script>
     <main class="flex flex-row gap-3">
         <aside class="bg-primar sticky top-[55px] flex flex-col flex-grow-0 flex-shrink-0 w-[40px] h-[70vh] shadow-m px-2 my-2 rounded">

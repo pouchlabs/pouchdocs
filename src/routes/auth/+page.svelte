@@ -1,5 +1,5 @@
 <script>
-     import {Notification,Button} from "svelte-ux";
+     import {Button} from "svelte-ux";
      import {enhance} from "$app/forms";
     export let data;
 </script>

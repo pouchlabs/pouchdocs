@@ -15,7 +15,7 @@ onMount(()=>{
 		el.classList.add('shadow-md')
 		el.classList.add('p-2')
 		el.classList.add('rounded')
-		el.classList.add('dark:bg-neutral-400')
+		el.classList.add('dark:bg-[#1212]')
 	})
 })
 
@@ -33,14 +33,14 @@ onMount(()=>{
 	{/if}
 	 
 	<div class="flex flex-row flex-wrap mx-2">
-		<div class="w-[200px] h-[200px] shadow-md mx-auto  rounded">
+		<div hidden class="w-[200px] h-[200px] shadow-md mx-auto  rounded">
 			ad 
-		</div>
+		</div> 
 	
 		<article class="px-5 text-wrap mt-2 mb-2">
       
 		</article>
-		<div class="w-[200px] h-[200px] mx-auto shadow-md  rounded sticky top-[70px]">
+		<div hidden class="w-[200px] h-[200px] mx-auto shadow-md  rounded sticky top-[70px]">
 			ad 
 		</div>
 	

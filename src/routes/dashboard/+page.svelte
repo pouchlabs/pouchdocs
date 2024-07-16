@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Grid,Card} from "svelte-ux";
+  import {Grid} from "svelte-ux";
   export let data;
 </script>
  <span class="text-primary p-1 my-2 mx-2"> dashboard </span>

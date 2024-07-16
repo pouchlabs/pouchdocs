@@ -19,6 +19,19 @@ export const actions = {
                 })
                 
             }
-        }
+        },
+        delete:async ({request,params})=>{
+        const formdata = Object.fromEntries(await request.formData());
+ 
+    const { error } = await supabase
+  .from('docs')
+  .delete()
+  .eq('title', formdata.title )
+  if(!error){
+    throw redirect(302,'/dashboard/documents')
+  }else{
+//
+  }
+ }
     
 }

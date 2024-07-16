@@ -1,4 +1,4 @@
-import {fail,error, redirect} from "@sveltejs/kit";
+import {fail, redirect} from "@sveltejs/kit";
 import {setAuthToken} from "../helpers.js";
 import {loginUser} from "$lib/server/user.ts";
 

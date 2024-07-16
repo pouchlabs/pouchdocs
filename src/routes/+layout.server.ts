@@ -2,7 +2,6 @@ import {supabase} from "$lib/server/config.ts";
 import { redirect } from "@sveltejs/kit";
 
 export async function load({locals,url}){
-
     let { data: admin, error } = await supabase
     .from('admin')
     .select('*')

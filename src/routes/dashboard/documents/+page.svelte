@@ -2,13 +2,9 @@
     import {Grid,Card,Header,Icon,Button,Dialog,Toggle,Menu,MenuItem,NavItem, Form, TextField} from "svelte-ux";
     import { z } from 'zod';
     import {enhance} from "$app/forms";
-   // import {enhance} from "svelte";
     export let data;
     let open = false;
-    let title = {
-    name: '',
-  };
-
+  
   const schema = z.object({
   title: z.string().max(200),
   
@@ -66,7 +62,10 @@
              
                  <MenuItem >
                   <Button href={`/dashboard/documents/${doc.title}`}>edit</Button>
-                
+                  <form use:enhance action="?/delete" method="post">
+                    <input hidden  name="title" value={doc.title}/>
+                     <Button type='submit'>Delete</Button>
+                  </form>
                 </MenuItem>
                 
                 </Menu>

@@ -1,5 +1,4 @@
 /** @type {import('./$types').EntryGenerator} */
-import {fail} from "@sveltejs/kit"
 import {supabase} from "$lib/server/config.ts";
 
 export async function load({params}){

@@ -1,15 +1,7 @@
 <script lang="ts">
-    import {Grid,Card,Header,Icon,Button,Dialog, Form, TextField} from "svelte-ux";
+    import {Button,TextField} from "svelte-ux";
     import { z } from 'zod';
     import {enhance} from "$app/forms";
-   import {writable} from "svelte/store";
-   import {BROWSER} from "esm-env";
-    export let data;
-    let open = false;
-    let title = {
-    name: '',
-  };
-
   const schema = z.object({
   name: z.string().min(3).max(70),
   email: z.string().email().min(3),

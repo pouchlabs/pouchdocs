@@ -1,14 +1,42 @@
-# create-svelte-ux-demo
+![pouchdocs](https://www.awesomescreenshot.com/image/49411578?key=e1ac260d8a49b20a7c2d10aa40fd6364)
+# pouchdocs
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+pouchdocs Record Time Documentation Sites
+
+launch documentation sites fast,connect with supabase and you are ready to ship
+
+## features
+
+# Content Editor
+create document pages and edit them with ease on Beautiful Block content editor
+
+# Zero To No Configuration
+with zero to no configuration launch your site asap
+
+# One Click Host CDN
+works out of the box with : netlify vercel
+
+# Elegant Dark Mode
+out of the box dark and light mode
+
+# Simple & Clean Designs
+with its simple design and dashboard area just customize it and ship fast
+
+# how to install
 
 ```bash
-npm run dev
+   fork the repo clone it and customize it
+   check .env.example for required environment variables
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+
 ```
 
-You will learn the rest on the Home page of the demo app.
+# sponsor
 
-More info on: https://svelte-ux.techniq.dev/
+pouchdocs will gladly welcome your sponsorship and your 
+contributions to its developement.
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H3XBF9G)
+
+
+
