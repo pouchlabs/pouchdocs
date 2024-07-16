@@ -2,6 +2,7 @@
 	import { AppBar, AppLayout, Avatar,Collapse, Button, NavItem, Tooltip, settings,ThemeSelect,Toggle,Menu,MenuItem} from 'svelte-ux';
 	import { page } from '$app/stores';
 	import '../app.postcss';
+	import Analytics from '$lib/analytics.svelte';
 	export let data;
 	settings({
 		components: {
@@ -111,3 +112,4 @@
 	</main>
 	
 </AppLayout>
+<Analytics></Analytics>

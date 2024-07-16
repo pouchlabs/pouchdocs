@@ -4,6 +4,7 @@
     import {page} from "$app/stores";
     import {SvelteEditor} from '@nextlint/svelte';
     import EditorTheme from '@nextlint/svelte/EditorTheme';
+    import {Button} from "svelte-ux";
     import '$lib/editor.css';
     import axios from "axios";
     import ls from 'localstorage-slim';
@@ -54,10 +55,7 @@
         ls.set(doc.title,editor.getHTML())
         let saved = ls.get(doc.title);
         curreditable = saved
-         saving = true;
-         setTimeout(()=>{
-           saving = false
-         },3001)
+       
       } catch (error) {
          //
       }
@@ -66,6 +64,9 @@ function saveDoc() {
   let html = ls.get(doc.title);
 axios.post(`/dashboard/documents/${$page.params.doc}`,{html:html,title:doc.title}).then(resp=>{
       curreditable = resp.data.html;
+         setTimeout(()=>{
+           saving = false
+         },3001)
     }).catch(err=>{
       //console.log(err)
     })
@@ -73,12 +74,17 @@ axios.post(`/dashboard/documents/${$page.params.doc}`,{html:html,title:doc.title
 
 
 </script> 
+<Button class='bg-success sticky top-[60px] left-1' on:click={()=>{ saving=true; setTimeout(saveDoc(),3000)}} disabled={saving === true}>
+   {#if saving === true  }
+   <span class=" mb-5"  >publishing...</span>
+   {:else}
+    publish
+    {/if}
+</Button>
    <div class="editor w-100 p-2 mb-5"  >
-    {#if saving }
-    <span class="text-success mb-5"  >publishing...</span>
-     {/if}
+   
      <EditorTheme  >
-      <SvelteEditor { plugins } placeholder="start writting .." onChange={(ed)=>{handleChange(ed);setTimeout(saveDoc(),3000)}} bind:content={curreditable}  ></SvelteEditor>
+      <SvelteEditor { plugins } placeholder="start writting .." onChange={(ed)=>{handleChange(ed)}} bind:content={curreditable}  ></SvelteEditor>
      </EditorTheme>
    </div>
    <style>
