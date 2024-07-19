@@ -13,6 +13,8 @@
    let editor;
    let curreditable = doc.html;;
 
+   //editor might change in the future
+
     onMount(async ()=>{
       //
  
@@ -42,8 +44,8 @@
       codeBlock: {
         langs: ['sh', 'javascript', 'html', 'typescript'],
         themes: {
-          dark: 'github-dark',
-          light: 'github-light'
+          dark: 'one-dark-pro',
+          light: 'one-light'
         }
       }
  

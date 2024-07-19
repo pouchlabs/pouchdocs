@@ -40,7 +40,7 @@
 		/>
 		
 
-	 <Collapse name="documentation" class="text-slate-100 " >
+	 <Collapse open name="documentation" class="text-slate-100 " >
 		{#if data.docs}
 		{#each data.docs.documents as doc}
 		<NavItem
@@ -106,7 +106,7 @@
 			  {/if}
 		</div>
 	</AppBar>
-    <main class="mt-[45px] bg-gray-200 dark:bg-[#2c2c2c22]">
+    <main class="mt-[45px] bg-gray-200 dark:bg-[#23272E]">
 		<slot />
 	
 	</main>

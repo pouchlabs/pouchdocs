@@ -9,7 +9,8 @@ article > a{
     color:var(--primary);
 }
 .shiki{
-    background-color: #1212 !important;
+    background-color: #373944 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 pre{
     min-height:40px;

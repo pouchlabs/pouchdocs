@@ -45,10 +45,10 @@
 						</span>
 	
 						<div class="mt-4 md:mx-4 md:mt-0">
-							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">Content editor</h1>
+							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">tailwindcss</h1>
 	
 							<p class="mt-3 text-gray-500 dark:text-gray-300">
-							  create document pages and edit them with ease on Beautiful Block content editor
+							  if you already know <a class="text-primary" href="https://tailwindcss.com">tailwindcss</a> customizing pouchdocs to your feel is easy.
 							</p>
 						</div>
 					</div>
@@ -63,10 +63,10 @@
 						</span>
 	
 						<div class="mt-4 md:mx-4 md:mt-0">
-							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">Zero to no Configuration</h1>
+							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">supabase as backend </h1>
 	
 							<p class="mt-3 text-gray-500 dark:text-gray-300">
-								with zero to no configuration launch your site asap 
+								pouchdocs uses <a class="text-primary" href="https://supabase.com text-primary">supabase</a> as backend database.
 							</p>
 						</div>
 					</div>
@@ -103,11 +103,12 @@
 						</span>
 	
 						<div class="mt-4 md:mx-4 md:mt-0">
-							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">elegant Dark Mode</h1>
+							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">Sveltekit</h1>
 	
 							<p class="mt-3 text-gray-500 dark:text-gray-300">
-								out of the box dark and light mode
+								pouchdocs is powered by <a class="text-primary" href="https://kit.svelte.dev">sveltekit</a>
 							</p>
+
 						</div>
 					</div>
 				</div>
@@ -121,7 +122,7 @@
 						</span>
 	
 						<div class="mt-4 md:mx-4 md:mt-0">
-							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">Simple & clean designs</h1>
+							<h1 class="text-xl font-medium text-gray-700 capitalize dark:text-white">Simple & clean dashboard</h1>
 	
 							<p class="mt-3 text-gray-500 dark:text-gray-300">
 								with its simple design and dashboard area just customize it and ship fast 
