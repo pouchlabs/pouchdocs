@@ -7,29 +7,35 @@ launch documentation sites fast,connect with supabase and you are ready to ship
 
 ## features
 
-# Content Editor
-create document pages and edit them with ease on Beautiful Block content editor
+# Tailwindcss
+if you already know tailwindcss customizing pouchdocs to your feel is easy.
 
-# Zero To No Configuration
-with zero to no configuration launch your site asap
+# supabase as backend
+pouchdocs uses supabase as backend database.
 
 # One Click Host CDN
 works out of the box with : netlify vercel
 
-# Elegant Dark Mode
-out of the box dark and light mode
+# Sveltekit
+pouchdocs is powered by sveltekit
 
-# Simple & Clean Designs
+# Simple & Clean Dashboard
 with its simple design and dashboard area just customize it and ship fast
 
 # how to install
 
 ```bash
    fork the repo clone it and customize it
+   npm install
    check .env.example for required environment variables
 
+   
+PRIVATE_SUPABASE_URL  //project url
+PRIVATE_SUPABASE_PUBLIC_KEY //public secret
+PRIVATE_SUPABASE_PRIVATE_KEY //private secret   most required
 
 ```
+![pouchdocs](https://pouchdocs.netlify.app/api_settings.png)
 
 # sponsor
 
